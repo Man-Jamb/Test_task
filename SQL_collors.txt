@@ -1,0 +1,19 @@
+DECLARE @Colors TABLE(Name nvarchar(20));
+
+INSERT INTO @Colors
+VALUES	('green'),
+	('black'),
+	('yellow'),
+	('blue'),
+	('white'),
+	('red'),
+	('brown');
+
+SELECT color1.Name Name1, 
+       color2.Name Name2, 
+       color3.Name Name3, 
+       color4.Name Name4
+FROM @Colors color1
+JOIN @Colors color2 ON color2.Name > color1.Name
+JOIN @Colors color3 ON color3.Name > color2.Name
+JOIN @Colors color4 ON color4.Name > color3.Name;
